@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="movie_descriptions">
+        <!-- The Matrix -->
+        <item>A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.</item>
+        <!-- The Hobbit Desolation of Smaug -->
+        <item>The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.</item>
+        <!-- The Avengers -->
+        <item>Nick Fury of S.H.I.E.L.D. assembles a team of superhumans to save the planet from Loki and his army.</item>
+        <!-- Reign Over Me< -->
+        <item>A man who lost his family in the September 11 attack on New York City runs into his old college roommate. Rekindling the friendship is the one thing that appears able to help the man recover from his grief.</item>
+        <!-- Into The Wild -->
+        <item>After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life.</item>
+        <!-- Wall-E -->
+        <item>In the distant future, a small waste collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.</item>
+    </string-array>
+</resources>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/separate_activities"
+        android:title="@string/separate_activities"/>
+
+    <item
+        android:id="@+id/buttonHandlingActivity"
+        android:title="@string/button_handling_activity"/>
+    
+</menu>

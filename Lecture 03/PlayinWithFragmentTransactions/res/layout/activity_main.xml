@@ -1,0 +1,118 @@
+<LinearLayout
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/group1"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="6"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <View
+       android:layout_width="match_parent"
+       android:layout_height="2dip"
+       android:layout_marginLeft="4dip"
+       android:layout_marginRight="4dip"
+       android:background="?android:attr/dividerVertical" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/group2"
+        android:orientation="horizontal" >
+        <Button android:id="@+id/btnAdd"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnAdd"
+            android:text="Add Happy"
+            style="?android:attr/buttonBarButtonStyle" />
+        <View
+	       android:layout_height="match_parent"
+	       android:layout_width="2dip"
+	       android:layout_marginTop="4dip"
+	       android:layout_marginBottom="4dip"
+	       android:background="?android:attr/dividerHorizontal" />
+        <Button android:id="@+id/btnRemove"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnRemove"
+            android:text="Rmv Old Add Sad"
+            style="?android:attr/buttonBarButtonStyle" />
+      </LinearLayout>
+      <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"
+            android:background="?android:attr/dividerVertical" />
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/group4"
+        android:orientation="horizontal"
+      >
+        <Button android:id="@+id/btnReplace"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnReplace"
+            android:text="In with Happy"
+            style="?android:attr/buttonBarButtonStyle" />
+		<View
+	       android:layout_height="match_parent"
+	       android:layout_width="2dip"
+	       android:layout_marginTop="4dip"
+	       android:layout_marginBottom="4dip"
+	       android:background="?android:attr/dividerHorizontal" />
+        <Button android:id="@+id/btnPrevious"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnPrevious"
+            android:text="Move Prev"
+            style="?android:attr/buttonBarButtonStyle" />
+      </LinearLayout>
+      <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"
+            android:background="?android:attr/dividerVertical" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/group3"
+        android:orientation="horizontal"
+      >
+        <Button android:id="@+id/btnAttach"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnAttach"
+            android:text="Attach"
+            style="?android:attr/buttonBarButtonStyle" />
+        <View
+	       android:layout_height="match_parent"
+	       android:layout_width="2dip"
+	       android:layout_marginTop="4dip"
+	       android:layout_marginBottom="4dip"
+	       android:background="?android:attr/dividerHorizontal" />
+        <Button android:id="@+id/btnDetach"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickBtnDetach"
+            android:text="Detach"
+            style="?android:attr/buttonBarButtonStyle" />
+      </LinearLayout>
+</LinearLayout>

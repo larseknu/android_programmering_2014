@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">Beginning With Fragments</string>
+    <string name="the_matrix">The Matrix</string>
+    <string name="the_hobbit">The Hobbit: Desolation of Smaug</string>
+    <string name="the_avengers">The Avengers</string>
+    <string name="reign_over_me">Reign Over Me</string>
+    <string name="into_the_wild">Into The Wild</string>
+    <string name="wall_e">Wall-E</string>
+    
+    <string name="separate_activities">Separate Activities</string>
+    
+    <string name="button_handling_activity">Button Handling</string>
+    <string name="click_count">Click count: 0</string>
+    <string name="push_me">Push me!</string>
+
+</resources>
