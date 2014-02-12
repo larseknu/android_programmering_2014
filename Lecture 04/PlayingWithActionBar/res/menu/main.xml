@@ -1,18 +1,22 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menuOption1"
-          android:icon="@android:drawable/ic_menu_mapmode"
-          android:title="@string/action_option_1"
-            />
-     <item android:id="@+id/menuOption2"
-          android:icon="@android:drawable/ic_menu_rotate"
-          android:title="@string/action_option_2"
-             />
-     <item android:id="@+id/menuOption3"
-          android:icon="@android:drawable/ic_menu_preferences"
-          android:title="@string/action_option_3"
-             />
-     <item android:id="@+id/menuExit"
-          android:icon="@android:drawable/ic_lock_power_off"
-          android:title="@string/action_exit"
-             />
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menuOption1"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="@string/action_option_1"
+        android:onClick="onOption1Clicked"/>
+	<item
+        android:id="@+id/menuOption2"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:title="@string/action_option_2"
+        android:onClick="onOption2Clicked"/>
+	<item
+        android:id="@+id/menuOption3"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/action_option_3"
+        android:onClick="onOption3Clicked"/>
+	<item
+        android:id="@+id/menuExit"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="@string/action_exit"
+        android:onClick="onExitClicked"/>
 </menu>
