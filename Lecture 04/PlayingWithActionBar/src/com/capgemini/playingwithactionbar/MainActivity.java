@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -59,4 +60,21 @@ public class MainActivity extends Activity {
 		actionBar.setDisplayShowTitleEnabled(false);
 	}
 	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN)
+			toggleActionBar();
+		
+		return true;
+	}
+
+	public void toggleActionBar() {
+		ActionBar actionBar = getActionBar();
+		if (actionBar != null) {
+			if (actionBar.isShowing())
+				actionBar.hide();
+			else
+				actionBar.show();
+		}
+	}
 }
