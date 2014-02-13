@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menuTabbed"
+           android:icon="@android:drawable/ic_menu_sort_by_size"
+           android:title="@string/action_tabbed"
+           android:onClick="onTabbedClick"
+           android:showAsAction="ifRoom|withText" />
+      <item android:id="@+id/menuExit"
+           android:icon="@android:drawable/ic_lock_power_off"
+           android:title="@string/action_exit"
+           android:onClick="onExitClick"
+           android:showAsAction="ifRoom" />
+</menu>

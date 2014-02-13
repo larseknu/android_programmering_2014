@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuToggleTitle"
+           android:icon="@android:drawable/ic_menu_mylocation"
+           android:title="@string/toggle_title"
+           android:onClick="onToggleTitleClick"
+           android:showAsAction="ifRoom|withText" />
+</menu>
