@@ -1,5 +1,6 @@
 package com.capgemini.tabbedactionbar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,6 +37,14 @@ public class TabbedActivity extends Activity {
 	}
 	
 	public void onToggleTitleClick(MenuItem menuItem) {
-		
+		ActionBar actionBar = getActionBar();
+
+        int currentOptions = actionBar.getDisplayOptions();
+        boolean currentVisibleValue =
+                (currentOptions & ActionBar.DISPLAY_SHOW_TITLE) != 0;
+        boolean newVisibleValue = !currentVisibleValue;
+
+        actionBar.setDisplayShowHomeEnabled(newVisibleValue);
+        actionBar.setDisplayShowTitleEnabled(newVisibleValue);
 	}
 }
