@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<ImageView
+	        android:id="@+id/iphoneOrDroid"
+	        android:contentDescription="@string/content_desc_xkcd_iphone_droid"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:src="@drawable/xkcd_iphone_droid" />
+
+</LinearLayout>

@@ -7,5 +7,6 @@
     <string name="action_tabbed">Tabbed</string>
     <string name="action_exit">Exit</string>
     <string name="toggle_title">Toggle Title</string>
-
+    <string name="content_desc_xkcd_iphone_droid">http://xkcd.com/662/</string>
+	<string name="content_desc_xkcd_good_code">http://xkcd.com/844/</string>
 </resources>
