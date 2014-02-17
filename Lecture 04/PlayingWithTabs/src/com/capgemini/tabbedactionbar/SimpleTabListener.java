@@ -13,10 +13,12 @@ public class SimpleTabListener implements TabListener {
     Context _context;
     String _tabFragmentClassName;
     Fragment _tabFragment = null;
+    int _viewGroupId;
 
-    public SimpleTabListener(Context context, String tabFragmentClassName) {
+    public SimpleTabListener(Context context, String tabFragmentClassName, int viewGroupId) {
         _context = context;
         _tabFragmentClassName = tabFragmentClassName;
+        _viewGroupId = viewGroupId;
      }
 
 	@Override
@@ -24,7 +26,7 @@ public class SimpleTabListener implements TabListener {
 		
 		if(_tabFragment == null) {
 			_tabFragment = Fragment.instantiate(_context, _tabFragmentClassName);
-			fragmentTransaction.add(android.R.id.content, _tabFragment);
+			fragmentTransaction.add(_viewGroupId, _tabFragment);
 		}
 		else
 			fragmentTransaction.attach(_tabFragment);
@@ -40,9 +42,16 @@ public class SimpleTabListener implements TabListener {
 		
 	}
 	
+	public static void SetupTabbedNavigation(Activity containingActivity,
+            int displayNameResourceId,
+            int fragmentClassNameResourceId) {
+		SetupTabbedNavigation(containingActivity, displayNameResourceId, fragmentClassNameResourceId, android.R.id.content);
+	}
+	
     public static void SetupTabbedNavigation(Activity containingActivity,
                                                                int displayNameResourceId,
-                                                               int fragmentClassNameResourceId) {
+                                                               int fragmentClassNameResourceId,
+                                                               int viewGroupId) {
         // Load the display values and class names from the resources
         String[] displayNameList = containingActivity.getResources().getStringArray(displayNameResourceId);
         String[] fragmentList = containingActivity.getResources().getStringArray(fragmentClassNameResourceId);
@@ -58,7 +67,7 @@ public class SimpleTabListener implements TabListener {
         
         ActionBar.TabListener tablistener;
         for (int i=0; i < fragmentList.length; i++) {
-        	tablistener = new SimpleTabListener(containingActivity, fragmentList[i]);
+        	tablistener = new SimpleTabListener(containingActivity, fragmentList[i], viewGroupId);
         	actionBar.addTab(
         			actionBar.newTab()
         					.setText(displayNameList[i])
