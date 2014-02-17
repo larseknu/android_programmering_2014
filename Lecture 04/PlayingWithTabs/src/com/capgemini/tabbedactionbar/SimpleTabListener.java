@@ -1,10 +1,13 @@
 package com.capgemini.tabbedactionbar;
 
 import android.app.ActionBar.Tab;
-import android.app.Fragment;
 import android.app.ActionBar.TabListener;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.util.Log;
 
 public class SimpleTabListener implements TabListener {
     Context _context;
@@ -37,19 +40,31 @@ public class SimpleTabListener implements TabListener {
 		
 	}
 	
-//    public static void SetupTabbedNavigation(Activity containingActivity,
-//                                                               int displayNameResourceId,
-//                                                               int fragmentClassNameResourceId) {
-//        // Load the display values and class names from the resources
-//        String[] displayNameList = containingActivity.getResources().getStringArray(displayNameResourceId);
-//        String[] fragmentList = containingActivity.getResources().getStringArray(fragmentClassNameResourceId);
-//
-//        if(fragmentList.length != displayNameList.length) {
-//            Log.e("SetupTabbedNavigation",
-//                    "ERROR - List of fragment class names and list of display names do not contain the same number of entries");
-//            return ;
-//        }
-//
-//    }
+    public static void SetupTabbedNavigation(Activity containingActivity,
+                                                               int displayNameResourceId,
+                                                               int fragmentClassNameResourceId) {
+        // Load the display values and class names from the resources
+        String[] displayNameList = containingActivity.getResources().getStringArray(displayNameResourceId);
+        String[] fragmentList = containingActivity.getResources().getStringArray(fragmentClassNameResourceId);
+
+        if(fragmentList.length != displayNameList.length) {
+            Log.e("SetupTabbedNavigation",
+                    "ERROR - List of fragment class names and list of display names do not contain the same number of entries");
+            return ;
+        }
+
+        ActionBar actionBar = containingActivity.getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        
+        ActionBar.TabListener tablistener;
+        for (int i=0; i < fragmentList.length; i++) {
+        	tablistener = new SimpleTabListener(containingActivity, fragmentList[i]);
+        	actionBar.addTab(
+        			actionBar.newTab()
+        					.setText(displayNameList[i])
+        					.setTabListener(tablistener)
+        	);
+        }
+    }
 
 }
