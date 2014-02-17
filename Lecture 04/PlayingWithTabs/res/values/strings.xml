@@ -9,4 +9,7 @@
     <string name="toggle_title">Toggle Title</string>
     <string name="content_desc_xkcd_iphone_droid">http://xkcd.com/662/</string>
 	<string name="content_desc_xkcd_good_code">http://xkcd.com/844/</string>
+	<string name="capgemini_text">People matter. Results count.</string>
+	<string name="capgemini_logo">Capgemini Logo</string>
+	<string name="action_partial_tabbed">Partial Tabbed</string>
 </resources>

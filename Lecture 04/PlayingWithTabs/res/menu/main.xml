@@ -4,6 +4,11 @@
            android:title="@string/action_tabbed"
            android:onClick="onTabbedClick"
            android:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/menuPartialTabbed"
+           android:icon="@android:drawable/ic_menu_agenda"
+           android:title="@string/action_partial_tabbed"
+           android:onClick="onPartialTabbedClick"
+           android:showAsAction="ifRoom|withText" />
       <item android:id="@+id/menuExit"
            android:icon="@android:drawable/ic_lock_power_off"
            android:title="@string/action_exit"
