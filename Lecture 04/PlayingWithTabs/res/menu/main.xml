@@ -9,6 +9,18 @@
            android:title="@string/action_partial_tabbed"
            android:onClick="onPartialTabbedClick"
            android:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/menuList"
+           android:icon="@android:drawable/ic_menu_preferences"
+           android:title="@string/action_list"
+           android:onClick="onListClick"
+           android:showAsAction="ifRoom|withText"
+              />
+    <item android:id="@+id/menuListPartial"
+         android:icon="@android:drawable/ic_menu_directions"
+         android:title="@string/action_list_partial"
+         android:onClick="onListPartialClick"
+         android:showAsAction="ifRoom|withText"
+            />
       <item android:id="@+id/menuExit"
            android:icon="@android:drawable/ic_lock_power_off"
            android:title="@string/action_exit"

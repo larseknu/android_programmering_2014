@@ -12,4 +12,6 @@
 	<string name="capgemini_text">People matter. Results count.</string>
 	<string name="capgemini_logo">Capgemini Logo</string>
 	<string name="action_partial_tabbed">Partial Tabbed</string>
+	<string name="action_list">List</string>
+	<string name="action_list_partial">List Partial</string>
 </resources>

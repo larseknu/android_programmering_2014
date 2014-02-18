@@ -30,6 +30,16 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, PartialTabbedActivity.class);
         startActivity(intent);
      }
+    
+    public void onListClick (MenuItem menuItem) {
+        Intent intent = new Intent(this, ListNavigationActivity.class);
+        startActivity(intent);
+     }
+    
+    public void onListPartialClick (MenuItem menuItem) {
+        Intent intent = new Intent(this, PartialListNavigationActivity.class);
+        startActivity(intent);
+     }
 
     public void onExitClick(MenuItem menuItem) {
          finish();

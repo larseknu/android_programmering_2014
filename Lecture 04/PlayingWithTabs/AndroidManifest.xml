@@ -26,6 +26,8 @@
         <activity android:name=".TabbedActivity" android:label="Tabbed Activity"
             android:uiOptions="splitActionBarWhenNarrow"/>
         <activity android:name=".PartialTabbedActivity" android:label="Partial Tabbed Activity"/>
+        <activity android:name=".ListNavigationActivity" android:label="List Navigation"/>
+        <activity android:name=".PartialListNavigationActivity"/>
     </application>
 
 </manifest>
