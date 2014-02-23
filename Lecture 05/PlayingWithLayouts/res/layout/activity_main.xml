@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-	<TextView
-        android:layout_width="160dp "
+    <TextView
+        android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal|bottom"
+        android:layout_gravity="bottom"
         android:text="@string/hello_world"
         android:background="#79f" />
 
 </LinearLayout>
+
