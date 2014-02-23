@@ -7,5 +7,7 @@
     <string name="right">Right</string>
     <string name="left">Left</string>
     <string name="middle">Middle</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
 
 </resources>
