@@ -3,42 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-	<TextView
-	    android:id="@+id/center"
-	    android:layout_centerInParent="true"
+	<EditText
+	    android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	<Button 
+	    android:id="@+id/ok_button"
+	    android:layout_below="@id/edit_text"
+	    android:layout_alignParentRight="true"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/center"
-        android:background="#79f"
-        android:textSize="50sp" />
-	<TextView 
+        android:text="@string/ok" />
+	<Button
+	    android:id="@+id/cancel_button"
+	    android:layout_toLeftOf="@id/ok_button"
+	    android:layout_below="@id/edit_text"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/center"
-        android:layout_alignLeft="@id/center"
-        android:text="@string/above"
-        android:background="#c9f" />
-	<TextView 
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/center"
-        android:layout_toLeftOf="@id/center"
-        android:text="@string/left"
-        android:background="#c9f" />
-	<TextView 
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@id/center"
-        android:layout_below="@id/center"
-        android:text="@string/below"
-        android:background="#c9f" />
-	<TextView 
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/center"
-        android:layout_alignTop="@id/center"
-        android:text="@string/right"
-        android:background="#c9f" />
+        android:text="@string/cancel" />
+	
 </RelativeLayout>
 
 
