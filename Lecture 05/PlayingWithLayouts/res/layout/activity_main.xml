@@ -3,25 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-	<EditText
-	    android:id="@+id/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text" />
-	<Button 
+	<Button
 	    android:id="@+id/ok_button"
-	    android:layout_below="@id/edit_text"
-	    android:layout_alignParentRight="true"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok" />
-	<Button
-	    android:id="@+id/cancel_button"
-	    android:layout_toLeftOf="@id/ok_button"
-	    android:layout_below="@id/edit_text"
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel" />
 	
 </RelativeLayout>
 
