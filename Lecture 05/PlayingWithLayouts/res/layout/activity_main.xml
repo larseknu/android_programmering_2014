@@ -1,20 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:foreground="@drawable/seen"
-    android:foregroundGravity="top|right" >
+    android:layout_height="wrap_content" >
     
-   	<ImageView
-   	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-   	    android:src="@drawable/wolf_of_wall_street"
-   	    android:contentDescription="@string/wolf_of_wall_street" />
+   	<TableRow>
+   	    <TextView 
+   	        android:text="@string/one"
+   	        android:background="@color/purple" />
+   	    <TextView 
+   	        android:text="@string/the_shawshank_redemption"
+   	        android:background="@color/blue" />
+   	    <TextView 
+   	        android:text="@string/score9_3"
+   	        android:background="@color/purple" />
+   	</TableRow>
+   	<TableRow>
+   	    <TextView 
+   	        android:text="@string/two"
+   	        android:background="@color/blue" />
+   	    <TextView 
+   	        android:text="@string/despicable_me"
+   	        android:background="@color/purple" />
+   	    <TextView 
+   	        android:text="@string/score7_6"
+   	        android:background="@color/blue" />
+   	</TableRow>
    	
-   	<ImageView
-   	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-   	    android:src="@drawable/poster_frame"
-   	    android:contentDescription="@string/poster_frame" />
-   	
-</FrameLayout>
+</TableLayout>
