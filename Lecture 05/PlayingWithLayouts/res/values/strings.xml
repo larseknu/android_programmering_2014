@@ -22,5 +22,7 @@
     <string name="despicable_me">Despicable Me</string>
     <string name="score7_6">7.6</string>
     <string name="movies">Movies</string>
+    <string name="stars_the_shawshank_redemption">Tim Robbins, Morgan Freeman, Bob Gunton</string>
+    <string name="stars_despicable_me">Steve Carell, Jason Segel, Russell Brand</string>
 
 </resources>
