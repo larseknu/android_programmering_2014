@@ -10,5 +10,7 @@
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
     <string name="center">Center</string>
+    <string name="above">Above</string>
+    <string name="below">Below</string>
 
 </resources>
