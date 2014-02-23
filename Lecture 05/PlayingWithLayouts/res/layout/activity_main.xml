@@ -2,12 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:weightSum="3">
     
 	<TextView
         android:layout_width="0dp"
@@ -15,11 +12,6 @@
         android:text="@string/middle"
         android:layout_weight="1"
         android:background="#f99" />
-    
-    <View
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
     
 </LinearLayout>
 
