@@ -1,12 +1,20 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/seen"
+    android:foregroundGravity="top|right" >
     
    	<ImageView
    	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
    	    android:src="@drawable/wolf_of_wall_street"
    	    android:contentDescription="@string/wolf_of_wall_street" />
+   	
+   	<ImageView
+   	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+   	    android:src="@drawable/poster_frame"
+   	    android:contentDescription="@string/poster_frame" />
    	
 </FrameLayout>
