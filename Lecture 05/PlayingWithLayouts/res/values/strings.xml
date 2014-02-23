@@ -8,9 +8,12 @@
     <string name="left">Left</string>
     <string name="middle">Middle</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="center">Center</string>
     <string name="above">Above</string>
     <string name="below">Below</string>
+    <string name="wolf_of_wall_street">Wolf of Wall Street</string>
+    <string name="poster_frame">Poster Frame</string>
+    <string name="seen">Seen</string>
 
 </resources>
