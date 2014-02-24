@@ -1,7 +1,5 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
     <View 
    	    android:layout_width="180dp"
     	android:layout_height="240dp"
@@ -12,4 +10,4 @@
     	android:layout_height="180dp"
     	android:background="@color/blue" />
    	
-</FrameLayout>
+</merge>
