@@ -3,24 +3,13 @@
     android:layout_width="240dp"
     android:layout_height="160dp"
     android:layout_gravity="center"
-    android:orientation="vertical" >
-    
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/austria_red" />
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/austria_red" >
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="54dp"
         android:background="@android:color/white" />
-    
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/austria_red" />
     
 </LinearLayout>
