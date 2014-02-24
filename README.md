@@ -1,6 +1,11 @@
 Android-Programmering 2014
 ==========================
 
+## Lecture 04 - 18.02
+* ActionBar
+	* Tabs
+	* List navigation
+
 Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
 
 ## Lecture 02 - 14.01.2013
