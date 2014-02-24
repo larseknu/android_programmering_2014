@@ -1,13 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
     
-    <include layout="@layout/happy_smiley" />
-    <include layout="@layout/happy_smiley"
-        	android:layout_width="70dp"
-        	android:layout_height="70dp"
-        	android:layout_margin="10dp" />
-    <include layout="@layout/happy_smiley" />
-   	
+    <Button
+        android:id="@+id/button"
+       	android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:text="@string/show_smileys"
+       	android:onClick="toggleSmileys" />
+    
+    <Include 
+        android:id="@+id/happySmileys"
+        layout="@layout/happy_smileys"
+        android:visibility="gone" />
+
+    
 </LinearLayout>

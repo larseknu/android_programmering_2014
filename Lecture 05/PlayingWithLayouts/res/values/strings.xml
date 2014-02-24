@@ -27,5 +27,6 @@
     <string name="hello">Hello</string>
     <string name="world">World</string>
     <string name="happy_smiley">Happy Smiley</string>
+    <string name="show_smileys">Show Smileys</string>
 
 </resources>
