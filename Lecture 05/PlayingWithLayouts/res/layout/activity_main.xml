@@ -3,22 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-    <ImageView 
-   	    android:layout_width="50dp"
-    	android:layout_height="50dp"
-    	android:src="@drawable/happy_smiley"
-    	android:contentDescription="@string/happy_smiley" />
-   	
-   	<ImageView 
-   	    android:layout_width="50dp"
-    	android:layout_height="50dp"
-    	android:src="@drawable/happy_smiley"
-    	android:contentDescription="@string/happy_smiley" />
-   	
-   	<ImageView 
-   	    android:layout_width="50dp"
-    	android:layout_height="50dp"
-    	android:src="@drawable/happy_smiley"
-    	android:contentDescription="@string/happy_smiley" />
+    <include layout="@layout/happy_smiley" />
+    <include layout="@layout/happy_smiley"
+        	android:layout_width="70dp"
+        	android:layout_height="70dp"
+        	android:layout_margin="10dp" />
+    <include layout="@layout/happy_smiley" />
    	
 </LinearLayout>
