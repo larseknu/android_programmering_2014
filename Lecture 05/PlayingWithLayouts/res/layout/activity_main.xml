@@ -11,10 +11,10 @@
        	android:text="@string/show_smileys"
        	android:onClick="toggleSmileys" />
     
-    <include 
+    <ViewStub
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
         android:id="@+id/happySmileys"
-        layout="@layout/happy_smileys"
-        android:visibility="gone" />
-
+        android:layout="@layout/happy_smileys" />
     
 </LinearLayout>

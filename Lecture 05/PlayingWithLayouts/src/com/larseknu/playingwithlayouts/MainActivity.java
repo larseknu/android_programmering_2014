@@ -3,6 +3,7 @@ package com.larseknu.playingwithlayouts;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewStub;
 
 public class MainActivity extends Activity {
 	private View smileys; 
@@ -14,13 +15,18 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		ViewServer.get(this).addWindow(this);
-		
-		smileys = findViewById(R.id.happySmileys);
 	}
 	
 	public void toggleSmileys(View view) {
-		boolean visible = (smileys.getVisibility() == View.VISIBLE);
-		smileys.setVisibility(visible ? View.GONE : View.VISIBLE);
+		if (smileys == null)
+		{
+			smileys = ((ViewStub) findViewById(R.id.happySmileys)).inflate();
+		}
+		else
+		{
+			boolean visible = (smileys.getVisibility() == View.VISIBLE);
+			smileys.setVisibility(visible ? View.GONE : View.VISIBLE);
+		}
 	}
 	
 	@Override
