@@ -1,7 +1,9 @@
 package com.larseknu.playingwithlayouts;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -9,6 +11,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		View parent = findViewById(android.R.id.content);
+		parent.setBackgroundColor(Color.RED);
 		
 		ViewServer.get(this).addWindow(this);
 	}
