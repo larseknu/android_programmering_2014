@@ -4,5 +4,29 @@
     <string name="app_name">PlayingWithLayouts</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="middle">Middle</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="center">Center</string>
+    <string name="above">Above</string>
+    <string name="below">Below</string>
+    <string name="wolf_of_wall_street">Wolf of Wall Street</string>
+    <string name="poster_frame">Poster Frame</string>
+    <string name="seen">Seen</string>
+    <string name="score9_3">9.3</string>
+    <string name="the_shawshank_redemption">The Shawshank Redemption</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="despicable_me">Despicable Me</string>
+    <string name="score7_6">7.6</string>
+    <string name="movies">Movies</string>
+    <string name="stars_the_shawshank_redemption">Tim Robbins, Morgan Freeman, Bob Gunton</string>
+    <string name="stars_despicable_me">Steve Carell, Jason Segel, Russell Brand</string>
+    <string name="hello">Hello</string>
+    <string name="world">World</string>
+    <string name="happy_smiley">Happy Smiley</string>
+    <string name="show_smileys">Show Smileys</string>
 
 </resources>
