@@ -1,13 +1,24 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
-    <View 
-   	    android:layout_width="180dp"
-    	android:layout_height="240dp"
-    	android:background="@color/purple" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <ImageView 
+   	    android:layout_width="50dp"
+    	android:layout_height="50dp"
+    	android:src="@drawable/happy_smiley"
+    	android:contentDescription="@string/happy_smiley" />
    	
-   	<View 
-   	    android:layout_width="240dp"
-    	android:layout_height="180dp"
-    	android:background="@color/blue" />
+   	<ImageView 
+   	    android:layout_width="50dp"
+    	android:layout_height="50dp"
+    	android:src="@drawable/happy_smiley"
+    	android:contentDescription="@string/happy_smiley" />
    	
-</merge>
+   	<ImageView 
+   	    android:layout_width="50dp"
+    	android:layout_height="50dp"
+    	android:src="@drawable/happy_smiley"
+    	android:contentDescription="@string/happy_smiley" />
+   	
+</LinearLayout>
