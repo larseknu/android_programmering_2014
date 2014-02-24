@@ -4,17 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <Button
-        android:id="@+id/button"
+    <ImageView
+        android:src="@drawable/happy_smiley"
        	android:layout_width="wrap_content"
        	android:layout_height="wrap_content"
-       	android:text="@string/show_smileys"
-       	android:onClick="toggleSmileys" />
+       	android:contentDescription="@string/happy_smiley" />
     
-    <ViewStub
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
-        android:id="@+id/happySmileys"
-        android:layout="@layout/happy_smileys" />
+        android:text="@string/hello_world" />
     
 </LinearLayout>
