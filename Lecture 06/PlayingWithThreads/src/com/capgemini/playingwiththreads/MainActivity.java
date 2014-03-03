@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		_outputTextView = (TextView) findViewById(R.id.outputTextView);
+		_outputTextView = (TextView) findViewById(R.id.outputTextView); 
 	}
 	
 	public void doWork() {
