@@ -5,5 +5,11 @@
         android:showAsAction="always|withText"
         android:title="@string/do_work"
         android:icon="@android:drawable/ic_menu_mapmode" />
+   	
+ 	<item
+        android:id="@+id/do_async_work"
+        android:showAsAction="always|withText"
+        android:title="@string/do_asynctask_work"
+        android:icon="@android:drawable/ic_menu_compass" />
 
 </menu>

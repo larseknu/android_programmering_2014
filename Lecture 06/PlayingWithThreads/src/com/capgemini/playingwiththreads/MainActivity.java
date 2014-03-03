@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
 	TextView _outputTextView;
 	Thread _workerThread;
 	String _tempMessage;
+	AsyncTaskWorker _asyncTaskWorker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,11 @@ public class MainActivity extends Activity {
 		
 		_outputTextView = (TextView) findViewById(R.id.outputTextView); 
 		StrictMode.enableDefaults(); 
+	}
+	
+	public void doAsyncWork() {
+		_asyncTaskWorker = new AsyncTaskWorker();
+		_asyncTaskWorker.execute(_outputTextView);
 	}
 	
 	public void doWork() {
@@ -63,6 +69,9 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.do_work:
 			doWork();
+			break;
+		case R.id.do_async_work:
+			doAsyncWork();
 			break;
 		default:
 			super.onOptionsItemSelected(item);
