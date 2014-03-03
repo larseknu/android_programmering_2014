@@ -27,7 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".OnDemandWorkerService"> </service>
+        <service android:name=".OnDemandWorkerService">
+        </service>
     </application>
 
 </manifest>

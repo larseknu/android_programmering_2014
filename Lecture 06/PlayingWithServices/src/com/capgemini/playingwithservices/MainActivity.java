@@ -1,7 +1,6 @@
 package com.capgemini.playingwithservices;
 
 import android.app.Activity;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,13 +16,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void doWork() {
-		Worker worker = new Worker(this);
-		
-		Location location = worker.getLocation();
-		
-		String address = worker.reverseGeocode(location);
-		
-		worker.save(location, address, "ServiceOutputFile.out");
+		LogHelper.ProcessAndThreadId("MyActivity.doWork");
 	}
 	
 	@Override
