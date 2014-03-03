@@ -28,11 +28,18 @@ public class MainActivity extends Activity {
 		toast.show();
 	}
 	
+	private void doMoreWork() {
+		
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.do_work:
 				doWork();
+				break;
+			case R.id.worker_service:
+				doMoreWork();
 				break;
 			default:
 				super.onOptionsItemSelected(item);
