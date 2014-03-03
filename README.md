@@ -1,12 +1,22 @@
 Android-Programmering 2014
 ==========================
 
+Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
+
+## Lecture 06 - 04.03
+* Tråder
+* Servicer
+
+## Lecture 05 - 25.02
+* Layouts
+
 ## Lecture 04 - 18.02
 * ActionBar
 	* Tabs
 	* List navigation
 
-Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
+## Lecture 03 - 21.01
+* Fragments
 
 ## Lecture 02 - 14.01.2013
 * Activity
