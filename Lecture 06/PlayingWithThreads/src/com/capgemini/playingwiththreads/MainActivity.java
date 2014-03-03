@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void doWork() {
-		Worker worker = new Worker(MainActivity.this);
+		Worker worker = new Worker(this);
 		_outputTextView.setText("Starting");
 		
 		Location location = worker.getLocation();
