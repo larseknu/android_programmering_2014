@@ -1,9 +1,11 @@
 package com.capgemini.playingwithservices;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +19,13 @@ public class MainActivity extends Activity {
 
 	private void doWork() {
 		LogHelper.ProcessAndThreadId("MyActivity.doWork");
+		
+		Intent intent = new Intent(this, OnDemandWorkerService.class);
+		intent.putExtra("fileName", "IntentFileName.out");
+		startService(intent);
+		
+		Toast toast = Toast.makeText(this, "Work has started", Toast.LENGTH_LONG);
+		toast.show();
 	}
 	
 	@Override
