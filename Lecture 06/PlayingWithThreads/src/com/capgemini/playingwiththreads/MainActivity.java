@@ -23,6 +23,10 @@ public class MainActivity extends Activity {
 		StrictMode.enableDefaults(); 
 	}
 	
+	public void callService() {
+		
+	}
+	
 	public void doAsyncWork() {
 		_asyncTaskWorker = new AsyncTaskWorker();
 		_asyncTaskWorker.execute(_outputTextView);
@@ -72,6 +76,9 @@ public class MainActivity extends Activity {
 			break;
 		case R.id.do_async_work:
 			doAsyncWork();
+			break;
+		case R.id.do_service_call:
+			callService();
 			break;
 		default:
 			super.onOptionsItemSelected(item);

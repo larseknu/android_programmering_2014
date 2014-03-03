@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="do_work">Do Work</string>
     <string name="do_asynctask_work">Do AsyncTask Work</string>
+    <string name="call_service">Call Service</string>
 
 </resources>
