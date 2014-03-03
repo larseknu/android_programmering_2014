@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 				updateUI("Done");
 			}
 		});
-		_workerThread.start();
+		_workerThread.start(); 
 	}
 
 	public void updateUI(String message) {
