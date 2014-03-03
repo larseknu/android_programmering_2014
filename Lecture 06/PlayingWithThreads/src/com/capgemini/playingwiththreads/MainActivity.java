@@ -1,12 +1,14 @@
 package com.capgemini.playingwiththreads;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	TextView _outputTextView;
@@ -24,7 +26,14 @@ public class MainActivity extends Activity {
 	}
 	
 	public void callService() {
+		LogHelper.ProcessAndThreadId("Remote Client");
 		
+		Intent intent = new Intent("com.capgemini.action.DO_WORK");
+		intent.putExtra("fileName", "RemoteClientFile.out");
+		startService(intent);
+		
+		Toast toast = Toast.makeText(this, "Calling remote service", Toast.LENGTH_LONG);
+		toast.show();
 	}
 	
 	public void doAsyncWork() {

@@ -27,7 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".OnDemandWorkerService">
+        <service android:name=".OnDemandWorkerService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.capgemini.action.DO_WORK" />
+            </intent-filter>
         </service>
     </application>
 
