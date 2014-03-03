@@ -29,7 +29,8 @@ public class MainActivity extends Activity {
 	}
 	
 	private void doMoreWork() {
-		
+		Intent intent = new Intent(this, WorkerService.class);
+		startService(intent);
 	}
 	
 	@Override

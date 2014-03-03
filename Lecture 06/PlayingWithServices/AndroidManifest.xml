@@ -33,6 +33,12 @@
                 <action android:name="com.capgemini.action.DO_WORK" />
             </intent-filter>
         </service>
+        <service android:name=".WorkerService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.capgemini.action.DO_MORE_WORK" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
