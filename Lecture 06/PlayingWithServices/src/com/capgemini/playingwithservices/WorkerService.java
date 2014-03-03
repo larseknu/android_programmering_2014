@@ -25,7 +25,7 @@ public class WorkerService extends Service {
 			public void run() {
 				Location location = _worker.getLocation();
 				
-				String address = _worker.reverseGeocode(location);
+				String address = _worker.reverseGeocode(location); 
 				
 				_worker.save(location, address, "WorkerService.out");
 			}
