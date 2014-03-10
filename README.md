@@ -3,6 +3,9 @@ Android-Programmering 2014
 
 Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
 
+## Lecture 07 - 10.03
+* Notifications
+
 ## Lecture 06 - 04.03
 * Tråder
 * Servicer
@@ -18,7 +21,7 @@ Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
 ## Lecture 03 - 21.02
 * Fragments
 
-## Lecture 02 - 14.01.2013
+## Lecture 02 - 14.01
 * Activity
 * Eksplisitte Intents
 * Intent Filter
@@ -28,7 +31,7 @@ Eksempler til kurset i Android-Programmering 2014 ved Høgskolen i Østfold
   * Category
   * Data
 
-## Lecture 01 - 07.01.2013
+## Lecture 01 - 07.01
 * Hva er Android?
 * Historie
 * Versjoner
