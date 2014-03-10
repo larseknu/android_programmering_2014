@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <Button 
+        android:id="@+id/notificationNavigationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/notification_navigation"
+        android:onClick="btnNotificationNavigationButtonOnClick" />
+    
+    <Button 
+        android:id="@+id/startServiceButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/start_foreground_service"
+        android:onClick="btnStartServiceOnClick" />
+    
+    <Button 
+        android:id="@+id/customNotificationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/custom_notification"
+        android:onClick="btnCustomNotifyOnClick" />
+
+</LinearLayout>
