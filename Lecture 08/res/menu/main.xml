@@ -4,7 +4,8 @@
         android:id="@+id/add"
         android:showAsAction="always|withText"
         android:icon="@android:drawable/ic_input_add"
-        android:title="@string/add"/>
+        android:title="@string/add"
+        android:onClick="itemAddOnClick" />
     
     <item
         android:id="@+id/delete"
