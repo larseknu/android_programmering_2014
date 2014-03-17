@@ -10,8 +10,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.capgemini.playingwithsqlite.database.SQLiteHelper;
+import com.capgemini.playingwithsqlite.Episode;
 import com.capgemini.playingwithsqlite.Show;
 import com.capgemini.playingwithsqlite.database.ShowTable;
+import com.capgemini.playingwithsqlite.database.EpisodeTable;
 
 public class ShowDataSource {
 	private SQLiteDatabase database;
@@ -20,6 +22,13 @@ public class ShowDataSource {
 			ShowTable.COLUMN_TITLE,
 			ShowTable.COLUMN_YEAR,
 			ShowTable.COLUMN_IMDB_ID};
+	
+	private String[] allEpisodeColumns = { EpisodeTable.COLUMN_ID,
+			EpisodeTable.COLUMN_SHOW_ID,
+			EpisodeTable.COLUMN_TITLE,
+			EpisodeTable.COLUMN_EPISODE,
+			EpisodeTable.COLUMN_SEASON,
+			EpisodeTable.COLUMN_OVERVIEW};
 	
 	public ShowDataSource(Context context) {
 		dbHelper = new SQLiteHelper(context);
@@ -81,6 +90,55 @@ public class ShowDataSource {
 		show.setImdbId(cursor.getString(3));
 		
 		return show;
+	}
+	
+	public Episode createEpisode(long showId, String title, int episode, int season, String aired) {
+		ContentValues values = new ContentValues();
+		values.put(EpisodeTable.COLUMN_SHOW_ID, showId);
+		values.put(EpisodeTable.COLUMN_TITLE, title);
+		values.put(EpisodeTable.COLUMN_EPISODE, episode);
+		values.put(EpisodeTable.COLUMN_SEASON, season);
+		values.put(EpisodeTable.COLUMN_OVERVIEW, aired);
+		
+		long insertId = database.insert(EpisodeTable.TABLE_EPISODE, null, values);
+		Cursor cursor = database.query(EpisodeTable.TABLE_EPISODE,
+										allEpisodeColumns, 
+										EpisodeTable.COLUMN_ID + " = " + insertId, 
+										null, null, null, null);
+		cursor.moveToFirst();
+		Episode newEpisode = cursorToEpisode(cursor);
+		cursor.close();
+		
+		return newEpisode;
+	}
+	
+	public List<Episode> getAllEpisodes(int showId) {
+		List<Episode> episodes = new ArrayList<Episode>();
+		Cursor cursor = database.query(EpisodeTable.TABLE_EPISODE,
+				allEpisodeColumns, 
+				EpisodeTable.COLUMN_SHOW_ID + "=" + showId, 
+				null, null, null, null);
+
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Episode episode = cursorToEpisode(cursor);
+			episodes.add(episode);
+			cursor.moveToNext();
+		}
+		
+		cursor.close();
+		return episodes;
+	}
+	
+	private Episode cursorToEpisode(Cursor cursor) {
+		Episode episode = new Episode();
+		episode.setId(cursor.getInt(0));
+		episode.setShowId(cursor.getInt(1));
+		episode.setTitle(cursor.getString(2));
+		episode.setSeason(cursor.getInt(3));
+		episode.setSeason(cursor.getInt(4));
+		episode.setOverview(cursor.getString(5));
+		return episode;
 	}
 	
 	public void open() throws SQLException {

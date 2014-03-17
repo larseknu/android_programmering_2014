@@ -3,9 +3,12 @@ package com.capgemini.playingwithsqlite;
 import java.util.List;
 import java.util.Random;
 
+import com.capgemini.playingwithsqlite.database.ShowDataSource;
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,8 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemLongClickListener;
-
-import com.capgemini.playingwithsqlite.database.ShowDataSource;
 
 public class ShowListActivity extends ListActivity {
 	private ShowDataSource datasource;
@@ -44,9 +45,23 @@ public class ShowListActivity extends ListActivity {
 	    adapter.addAll(shows);
 	}
 	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		Show show = (Show) getListAdapter().getItem(position);
+		//Toast.makeText(this, show.getId() + " " + show.getTitle(), Toast.LENGTH_LONG).show();
+		
+		Intent intent = new Intent(this, EpisodesActivity.class);
+		intent.putExtra(EpisodesActivity.SHOW_ID, show.getId());
+		intent.putExtra(EpisodesActivity.SHOW_TITLE, show.getTitle());
+		startActivity(intent);
+	}
+	
 	public void itemAddOnClick(MenuItem item) {
 		String[] shows =  getResources().getStringArray(R.array.shows);
 		Show show = datasource.createShow(shows[showNumber++ % 9], new Random().nextInt(15)+2000, null);
+		
+		datasource.createEpisode(show.getId(), "Pilot", 1, 2, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
+		datasource.createEpisode(show.getId(), "The Big Bran Hypothesis", 2, 1, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
 		
 		@SuppressWarnings("unchecked")
 		ArrayAdapter<Show> adapter = (ArrayAdapter<Show>) getListAdapter();
