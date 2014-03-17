@@ -79,6 +79,12 @@ public class ShowDataSource {
 	public void deleteShow(Show show) {
 		long id = show.getId();
 		
+		List<Episode> episodes = getAllEpisodes(show.getId()); 
+		
+		for (Episode episode : episodes) {
+			deleteEpisode(episode);
+		}
+		
 		database.delete(ShowTable.TABLE_SHOW, ShowTable.COLUMN_ID + " = " + id, null);
 	}
 	
@@ -128,6 +134,11 @@ public class ShowDataSource {
 		
 		cursor.close();
 		return episodes;
+	}
+	
+	public void deleteEpisode(Episode episode) {
+		long id = episode.getId();
+		database.delete(EpisodeTable.TABLE_EPISODE, EpisodeTable.COLUMN_ID + " = " + id, null);
 	}
 	
 	private Episode cursorToEpisode(Cursor cursor) {
