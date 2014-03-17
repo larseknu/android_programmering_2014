@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,15 +58,30 @@ public class ShowListActivity extends ListActivity {
 	}
 	
 	public void itemAddOnClick(MenuItem item) {
-		String[] shows =  getResources().getStringArray(R.array.shows);
-		Show show = datasource.createShow(shows[showNumber++ % 9], new Random().nextInt(15)+2000, null);
-		
-		datasource.createEpisode(show.getId(), "Pilot", 1, 2, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
-		datasource.createEpisode(show.getId(), "The Big Bran Hypothesis", 2, 1, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
-		
-		@SuppressWarnings("unchecked")
-		ArrayAdapter<Show> adapter = (ArrayAdapter<Show>) getListAdapter();
-		adapter.add(show);
+		CreateShow createShow = new CreateShow();
+		createShow.execute();
+	}
+	
+	private class CreateShow extends AsyncTask<Void, Void, Show> {
+
+		@Override
+		protected Show doInBackground(Void... params) {
+			String[] shows = getResources().getStringArray(R.array.shows);
+			
+			Show show = datasource.createShow(shows[showNumber++%9], new Random().nextInt(15)+2000, null);
+			datasource.createEpisode(show.getId(), "Pilot", 1, 1, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
+			datasource.createEpisode(show.getId(), "The Big Bran Hypothesis", 2, 1, "Brilliant physicist roommates Leonard and Sheldon meet their new neighbor Penny, who begins showing them that as much as they know about science, they know little about actual living.");
+			
+			return show;
+		}
+
+		@Override
+		protected void onPostExecute(Show show) {
+			@SuppressWarnings("unchecked")
+			ArrayAdapter<Show> adapter = (ArrayAdapter<Show>) getListAdapter();
+			
+			adapter.add(show);
+		}
 	}
 	
 	public void itemDeleteOnClick(MenuItem item) {
