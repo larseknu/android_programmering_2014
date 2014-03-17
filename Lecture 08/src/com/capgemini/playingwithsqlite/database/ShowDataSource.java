@@ -67,6 +67,12 @@ public class ShowDataSource {
 		return shows;
 	}
 	
+	public void deleteShow(Show show) {
+		long id = show.getId();
+		
+		database.delete(ShowTable.TABLE_SHOW, ShowTable.COLUMN_ID + " = " + id, null);
+	}
+	
 	private Show cursorToShow(Cursor cursor) {
 		Show show = new Show();
 		show.setId(cursor.getInt(0));

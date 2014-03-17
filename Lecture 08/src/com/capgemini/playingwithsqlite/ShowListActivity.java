@@ -3,11 +3,17 @@ package com.capgemini.playingwithsqlite;
 import java.util.List;
 import java.util.Random;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 import com.capgemini.playingwithsqlite.database.ShowDataSource;
 
@@ -23,6 +29,14 @@ public class ShowListActivity extends ListActivity {
 		datasource = new ShowDataSource(this);
 		datasource.open();
 		
+		ListView listView = getListView();
+		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+				deleteShowDialog(position);
+		        return true;
+            }
+		});
+		
 		List<Show> shows = datasource.getAllShows();
 
 	    ShowListAdapter adapter = new ShowListAdapter(this, android.R.layout.simple_list_item_1);
@@ -37,6 +51,38 @@ public class ShowListActivity extends ListActivity {
 		@SuppressWarnings("unchecked")
 		ArrayAdapter<Show> adapter = (ArrayAdapter<Show>) getListAdapter();
 		adapter.add(show);
+	}
+	
+	public void itemDeleteOnClick(MenuItem item) {
+		@SuppressWarnings("unchecked")
+		ArrayAdapter<Show> adapter = (ArrayAdapter<Show>) getListAdapter();
+		
+		while (adapter.getCount() > 0) {
+			Show show = adapter.getItem(0);
+			datasource.deleteShow(show);
+			adapter.remove(show);
+		}
+	}
+	
+	private void deleteShowDialog(final int position) {
+		new AlertDialog.Builder(this)
+	        .setTitle("Delete entry?")
+	        .setMessage("Are you sure you want to delete this entry?")
+	        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	            public void onClick(DialogInterface dialog, int which) { 
+	            	ShowListAdapter adapter = (ShowListAdapter) getListAdapter();
+					Show show = (Show) adapter.getItem(position);
+					datasource.deleteShow(show);
+			        adapter.remove(show);
+	            }
+	         })
+	        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+	            public void onClick(DialogInterface dialog, int which) { 
+	                // Do nothing
+	            }
+	         })
+	        .setIcon(android.R.drawable.ic_dialog_alert)
+	         .show();
 	}
 	
 	@Override

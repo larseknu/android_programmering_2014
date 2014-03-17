@@ -11,6 +11,7 @@
         android:id="@+id/delete"
         android:showAsAction="always|withText"
         android:icon="@android:drawable/ic_delete"
-        android:title="@string/delete" />
+        android:title="@string/delete"
+        android:onClick="itemDeleteOnClick" />
 
 </menu>
