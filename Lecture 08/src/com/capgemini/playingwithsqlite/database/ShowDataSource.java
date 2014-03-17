@@ -42,8 +42,10 @@ public class ShowDataSource {
 										ShowTable.COLUMN_ID + " = " + id, 
 										null, null, null, null);
 		cursor.moveToFirst();
+		Show show = cursorToShow(cursor);
+		cursor.close();
 		
-		return cursorToShow(cursor);
+		return show;
 	}
 	
 	public List<Show> getAllShows() {
@@ -71,7 +73,6 @@ public class ShowDataSource {
 		show.setTitle(cursor.getString(1));
 		show.setYear(cursor.getInt(2));
 		show.setImdbId(cursor.getString(3));
-		cursor.close();
 		
 		return show;
 	}
