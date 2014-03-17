@@ -9,24 +9,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-	<LinearLayout
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add" 
-            android:onClick="btnAddOnClick"/>
-
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/delete" 
-            android:onClick="btnDeleteOnClick"/>
-        
-    </LinearLayout>
 </LinearLayout> 
