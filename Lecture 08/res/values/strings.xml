@@ -6,4 +6,10 @@
 
     <string name="delete">Delete</string>
 
+    <string name="show_poster">Show Poster</string>
+
+    <string name="show_title">Show Title</string>
+
+    <string name="year">Year</string>
+
 </resources>
