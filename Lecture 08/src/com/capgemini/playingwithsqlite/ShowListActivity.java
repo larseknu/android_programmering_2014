@@ -23,10 +23,11 @@ public class ShowListActivity extends ListActivity {
 		datasource = new ShowDataSource(this);
 		datasource.open();
 		
-		List<Show> values = datasource.getAllShows();
+		List<Show> shows = datasource.getAllShows();
 
-	    ArrayAdapter<Show> adapter = new ArrayAdapter<Show>(this, android.R.layout.simple_list_item_1, values);
+	    ShowListAdapter adapter = new ShowListAdapter(this, android.R.layout.simple_list_item_1);
 	    setListAdapter(adapter);
+	    adapter.addAll(shows);
 	}
 	
 	public void itemAddOnClick(MenuItem item) {
