@@ -4,5 +4,6 @@
     <string name="app_name">PlayingWithGoogleMaps</string>
     <string name="kitty_dance">Kitty Dance</string>
     <string name="kitty_attack">Kitty Attack</string>
+    <string name="draw_route">Draw Route</string>
 
 </resources>

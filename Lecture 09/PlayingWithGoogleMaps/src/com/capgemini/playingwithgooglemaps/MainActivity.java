@@ -2,7 +2,11 @@ package com.capgemini.playingwithgooglemaps;
 
 import java.util.ArrayList;
 
+import org.w3c.dom.Document;
+
+import android.graphics.Color;
 import android.graphics.Point;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -22,6 +26,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MainActivity extends ActionBarActivity implements OnMapLongClickListener {
 	private int kittyCounter = 0;
@@ -29,13 +34,15 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
 	private LatLng FREDRIKSTAD = new LatLng(59.21047628, 10.93994737);
-
+	GMapV2Direction mapDirection;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		kittyMarkers = new ArrayList<Marker>();
+		mapDirection = new GMapV2Direction();
 
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 		map = mapFragment.getMap();
@@ -47,7 +54,31 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
 		map.setOnMapLongClickListener(this);
 	}
+	
+	private class drawRoute extends AsyncTask<Void, Void, Document> {
+		Document doc;
+		PolylineOptions rectLine;
 
+		@Override
+		protected Document doInBackground(Void... params) {
+			doc = mapDirection.getDocument(FREDRIKSTAD, HIOF, GMapV2Direction.MODE_DRIVING);
+
+			ArrayList<LatLng> directionPoint = mapDirection.getDirection(doc);
+			rectLine = new PolylineOptions().width(3).color(Color.BLUE);
+
+			for (int i = 0; i < directionPoint.size(); i++) {
+				rectLine.add(directionPoint.get(i));
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Document result) {
+			map.addPolyline(rectLine);
+		}
+	}
+	
 	@Override
 	public void onMapLongClick(LatLng point) {
 		Marker kitty = map.addMarker(new MarkerOptions().position(point).title("Mittens the " + kittyCounter + ".").snippet("Kitty Invasion")
@@ -73,6 +104,9 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		case R.id.kitty_attack:
 			for (Marker kittyMarker : kittyMarkers)
 				animateMarker(kittyMarker, FREDRIKSTAD);
+			break;
+		case R.id.draw_route:
+			new drawRoute().execute();
 			break;
 		default:
 			break;

@@ -7,5 +7,10 @@
         android:id="@+id/kitty_attack"
         android:title="@string/kitty_attack"
         app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/draw_route"
+        android:title="@string/draw_route"
+        app:showAsAction="never"/>
 
 </menu>
