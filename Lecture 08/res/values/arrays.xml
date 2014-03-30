@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="shows">
+	    <item>The Big Bang Theory</item>
+	    <item>Game of Thrones</item>
+	    <item>Suits</item>
+	    <item>Hunter X Hunter</item>
+	    <item>House of Cards</item>
+	    <item>The Mentalist</item>
+	    <item>BattleStar Galactica</item>
+	    <item>South Park</item>
+	    <item>Breaking Bad</item>
+	</string-array>
+</resources>

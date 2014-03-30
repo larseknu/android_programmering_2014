@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".MainActivity"
+    android:orientation="vertical" >
+    
+    <Button 
+        android:id="@+id/notificationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/notification"
+        android:onClick="btnNotificationOnClick" />
+    
+    <Button 
+        android:id="@+id/personalNotificationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/personal_notification"
+        android:onClick="btnPersonalNotificationOnClick" />
+    
+    <Button 
+        android:id="@+id/multiNotificationsButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/multi_notifications"
+        android:onClick="btnMultiNotificationsOnClick" />
+    
+    <Button 
+        android:id="@+id/bigTextNotificationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/big_text_notification"
+        android:onClick="btnBigTextNotificationOnClick" />
+    
+    <Button 
+        android:id="@+id/bigPictureNotificationButton" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/big_picture_notification"
+        android:onClick="btnBigPictureNotificationOnClick" />
+
+</LinearLayout>

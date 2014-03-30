@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#727475">
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageView"
+      android:src="@drawable/ic_avengers"
+      android:minWidth="64dp"
+      android:maxHeight="64dp"
+      android:maxWidth="64dp"
+      android:minHeight="64dp"
+      android:layout_gravity="center"
+      android:contentDescription="@string/avengers" />
+
+  <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnStop"
+      android:layout_gravity="center_horizontal|top"
+      android:src="@android:drawable/ic_media_pause"
+      android:layout_margin="10dp"
+      android:contentDescription="@string/stop_service" />
+
+  <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnStart"
+      android:layout_gravity="center_horizontal|top"
+      android:src="@android:drawable/ic_media_play"
+      android:layout_margin="10dp"
+      android:contentDescription="@string/start_service" />
+
+</LinearLayout>
