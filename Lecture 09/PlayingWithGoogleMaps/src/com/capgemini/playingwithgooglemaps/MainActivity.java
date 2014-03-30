@@ -58,6 +58,11 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		map.setOnMapLongClickListener(this);
 		
 		map.setMyLocationEnabled(true);
+		
+		UiSettings uiSettings = map.getUiSettings();
+		uiSettings.setCompassEnabled(false);
+		uiSettings.setTiltGesturesEnabled(false);
+		uiSettings.setZoomControlsEnabled(false);
 	}
 	
 	private class drawRoute extends AsyncTask<Void, Void, Document> {
