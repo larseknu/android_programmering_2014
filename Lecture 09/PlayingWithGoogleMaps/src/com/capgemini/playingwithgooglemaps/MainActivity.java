@@ -42,7 +42,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MainActivity extends ActionBarActivity implements OnMapLongClickListener, OnItemSelectedListener {
-	private int kittyCounter = 0;
+	private int kittyCounter = 1;
 	private ArrayList<Marker> kittyMarkers;
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
@@ -108,7 +108,7 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		Document doc;
 		PolylineOptions rectLine;
 
-		@Override
+		@Override 
 		protected Document doInBackground(Void... params) {
 			doc = mapDirection.getDocument(myPosition, HIOF, GMapV2Direction.MODE_DRIVING);
 
