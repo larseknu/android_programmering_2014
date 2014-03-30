@@ -1,5 +1,7 @@
 package com.capgemini.playingwithgooglemaps;
 
+import java.util.ArrayList;
+
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,14 +14,18 @@ import android.view.animation.LinearInterpolator;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnMapLongClickListener {
+	private int kittyCounter = 0;
+	private ArrayList<Marker> kittyMarkers;
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
 	private LatLng FREDRIKSTAD = new LatLng(59.21047628, 10.93994737);
@@ -28,6 +34,8 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		kittyMarkers = new ArrayList<Marker>();
 		
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 		map = mapFragment.getMap();
@@ -38,7 +46,23 @@ public class MainActivity extends ActionBarActivity {
 		map.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(HIOF, 13, 0, 0)));
 		
 		map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
+		
+		map.setOnMapLongClickListener(this);
 	}
+	
+	@Override
+    public void onMapLongClick(LatLng point) {
+        Marker kitty = map.addMarker(new MarkerOptions()
+		        .position(point)
+		        .title("Mittens the " + kittyCounter + ".")
+		        .snippet("Kitty Invasion")
+		        .icon(BitmapDescriptorFactory.fromResource(
+		        		getResources().getIdentifier("kitten_0" + (kittyCounter%3+1), 
+		        										"drawable", 
+		        										"com.capgemini.playingwithgooglemaps"))));
+        kittyMarkers.add(kitty);
+        kittyCounter++;
+    }
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -55,6 +79,8 @@ public class MainActivity extends ActionBarActivity {
 		int id = item.getItemId();
 		switch (id) {
 			case R.id.kitty_attack:						
+				for (Marker kittyMarker : kittyMarkers)
+					animateMarker(kittyMarker, FREDRIKSTAD);
 				break;
 			default:
 				break;
@@ -84,7 +110,6 @@ public class MainActivity extends ActionBarActivity {
 
                 if (t < 1.0) {
                     // Post again 16ms later.
-                    handler.postDelayed(this, 16);
                 }
             }
         });
