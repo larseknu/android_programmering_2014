@@ -29,41 +29,33 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
 	private LatLng FREDRIKSTAD = new LatLng(59.21047628, 10.93994737);
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		kittyMarkers = new ArrayList<Marker>();
-		
+
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 		map = mapFragment.getMap();
-		
+
 		map.addMarker(new MarkerOptions().position(HIOF).title("Østfold University College"));
 		map.addMarker(new MarkerOptions().position(FREDRIKSTAD).title("Fredrikstad Kino"));
-		
+
 		map.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(HIOF, 13, 0, 0)));
-		
 		map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
-		
 		map.setOnMapLongClickListener(this);
 	}
-	
+
 	@Override
-    public void onMapLongClick(LatLng point) {
-        Marker kitty = map.addMarker(new MarkerOptions()
-		        .position(point)
-		        .title("Mittens the " + kittyCounter + ".")
-		        .snippet("Kitty Invasion")
-		        .icon(BitmapDescriptorFactory.fromResource(
-		        		getResources().getIdentifier("kitten_0" + (kittyCounter%3+1), 
-		        										"drawable", 
-		        										"com.capgemini.playingwithgooglemaps"))));
-        kittyMarkers.add(kitty);
-        kittyCounter++;
-    }
-	
+	public void onMapLongClick(LatLng point) {
+		Marker kitty = map.addMarker(new MarkerOptions().position(point).title("Mittens the " + kittyCounter + ".").snippet("Kitty Invasion")
+				.icon(BitmapDescriptorFactory.fromResource(getResources().getIdentifier("kitten_0" + (kittyCounter % 3 + 1), "drawable", "com.capgemini.playingwithgooglemaps"))));
+		kittyMarkers.add(kitty);
+		kittyCounter++;
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -78,41 +70,42 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		switch (id) {
-			case R.id.kitty_attack:						
-				for (Marker kittyMarker : kittyMarkers)
-					animateMarker(kittyMarker, FREDRIKSTAD);
-				break;
-			default:
-				break;
+		case R.id.kitty_attack:
+			for (Marker kittyMarker : kittyMarkers)
+				animateMarker(kittyMarker, FREDRIKSTAD);
+			break;
+		default:
+			break;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void animateMarker(final Marker marker, final LatLng toPosition) {
-        final Handler handler = new Handler();
-        final long start = SystemClock.uptimeMillis();
-        Projection proj = map.getProjection();
-        Point startPoint = proj.toScreenLocation(marker.getPosition());
-        final LatLng startLatLng = proj.fromScreenLocation(startPoint);
-        final long duration = 500;
+		final Handler handler = new Handler();
+		final long start = SystemClock.uptimeMillis();
+		Projection proj = map.getProjection();
+		Point startPoint = proj.toScreenLocation(marker.getPosition());
+		final LatLng startLatLng = proj.fromScreenLocation(startPoint);
+		final long duration = 500;
 
-        final Interpolator interpolator = new LinearInterpolator();
+		final Interpolator interpolator = new LinearInterpolator();
 
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                long elapsed = SystemClock.uptimeMillis() - start;
-                float t = interpolator.getInterpolation((float) elapsed / duration);
-                double lng = t * toPosition.longitude + (1 - t) * startLatLng.longitude;
-                double lat = t * toPosition.latitude + (1 - t) * startLatLng.latitude;
-                marker.setPosition(new LatLng(lat, lng));
+		handler.post(new Runnable() {
+			@Override
+			public void run() {
+				long elapsed = SystemClock.uptimeMillis() - start;
+				float t = interpolator.getInterpolation((float) elapsed / duration);
+				double lng = t * toPosition.longitude + (1 - t) * startLatLng.longitude;
+				double lat = t * toPosition.latitude + (1 - t) * startLatLng.latitude;
+				marker.setPosition(new LatLng(lat, lng));
 
-                if (t < 1.0) {
-                    // Post again 16ms later.
-                }
-            }
-        });
-    }
+				if (t < 1.0) {
+					// Post again 16ms later.
+					handler.postDelayed(this, 16);
+				}
+			}
+		});
+	}
 
 }
