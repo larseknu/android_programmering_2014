@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 
 import android.graphics.Color;
 import android.graphics.Point;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,6 +35,7 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
 	private LatLng FREDRIKSTAD = new LatLng(59.21047628, 10.93994737);
+	LatLng myPosition = new LatLng(0,0);
 	GMapV2Direction mapDirection;
 	
 	@Override
@@ -61,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 
 		@Override
 		protected Document doInBackground(Void... params) {
-			doc = mapDirection.getDocument(FREDRIKSTAD, HIOF, GMapV2Direction.MODE_DRIVING);
+			doc = mapDirection.getDocument(myPosition, HIOF, GMapV2Direction.MODE_DRIVING);
 
 			ArrayList<LatLng> directionPoint = mapDirection.getDirection(doc);
 			rectLine = new PolylineOptions().width(3).color(Color.BLUE);
@@ -106,6 +108,8 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 				animateMarker(kittyMarker, FREDRIKSTAD);
 			break;
 		case R.id.draw_route:
+			Location myLocation = map.getMyLocation();
+			myPosition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
 			new drawRoute().execute();
 			break;
 		default:
