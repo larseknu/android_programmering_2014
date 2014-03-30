@@ -22,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -35,8 +36,8 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 	private GoogleMap map;
 	private LatLng HIOF = new LatLng(59.12797849, 11.35272861);
 	private LatLng FREDRIKSTAD = new LatLng(59.21047628, 10.93994737);
-	LatLng myPosition = new LatLng(0,0);
-	GMapV2Direction mapDirection;
+	private LatLng myPosition = new LatLng(0,0);
+	private GMapV2Direction mapDirection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		map.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(HIOF, 13, 0, 0)));
 		map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
 		map.setOnMapLongClickListener(this);
+		
+		map.setMyLocationEnabled(true);
 	}
 	
 	private class drawRoute extends AsyncTask<Void, Void, Document> {
