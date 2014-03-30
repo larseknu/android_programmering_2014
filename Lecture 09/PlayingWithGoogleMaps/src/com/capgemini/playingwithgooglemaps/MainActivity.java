@@ -1,5 +1,11 @@
 package com.capgemini.playingwithgooglemaps;
 
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_HYBRID;
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NONE;
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_SATELLITE;
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_TERRAIN;
+
 import java.util.ArrayList;
 
 import org.w3c.dom.Document;
@@ -14,8 +20,13 @@ import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,7 +41,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-public class MainActivity extends ActionBarActivity implements OnMapLongClickListener {
+public class MainActivity extends ActionBarActivity implements OnMapLongClickListener, OnItemSelectedListener {
 	private int kittyCounter = 0;
 	private ArrayList<Marker> kittyMarkers;
 	private GoogleMap map;
@@ -53,8 +64,16 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		map.addMarker(new MarkerOptions().position(HIOF).title("Østfold University College"));
 		map.addMarker(new MarkerOptions().position(FREDRIKSTAD).title("Fredrikstad Kino"));
 
-		map.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(HIOF, 13, 0, 0)));
-		map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
+		if (savedInstanceState == null) {
+			map.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(HIOF, 13, 0, 0)));
+			map.animateCamera(CameraUpdateFactory.newLatLng(FREDRIKSTAD), 2000, null);
+		}
+		else {
+			Bundle bundle = savedInstanceState.getBundle("lost_kittens");            
+            KittenLocation kittenLocation = bundle.getParcelable("found_kitten");
+			map.addMarker(new MarkerOptions().position(kittenLocation.getLatLng()).title(kittenLocation.getName()).snippet("Found Kitten")
+					.icon(BitmapDescriptorFactory.fromResource(getResources().getIdentifier("kitten_0" + (kittyCounter % 3 + 1), "drawable", "com.capgemini.playingwithgooglemaps"))));
+		}
 		map.setOnMapLongClickListener(this);
 		
 		map.setMyLocationEnabled(true);
@@ -63,7 +82,27 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		uiSettings.setCompassEnabled(false);
 		uiSettings.setTiltGesturesEnabled(false);
 		uiSettings.setZoomControlsEnabled(false);
+		
+		Spinner spinner = (Spinner) findViewById(R.id.layers_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.layers_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 	}
+	
+	@Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        
+        if (!kittyMarkers.isEmpty()) {
+        	Marker kittyMarker = kittyMarkers.get(0);
+        	KittenLocation kittenLocation = new KittenLocation(kittyMarker.getTitle(), new LatLng(kittyMarker.getPosition().latitude, kittyMarker.getPosition().longitude));
+        	
+        	Bundle bundle = new Bundle();
+        	outState.putParcelable("found_kitten", kittenLocation);
+            outState.putBundle("lost_kittens", bundle);
+        }
+    }
 	
 	private class drawRoute extends AsyncTask<Void, Void, Document> {
 		Document doc;
@@ -154,4 +193,29 @@ public class MainActivity extends ActionBarActivity implements OnMapLongClickLis
 		});
 	}
 
+	@Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch ((String) parent.getItemAtPosition(position)) {
+			case "Hybrid":
+				map.setMapType(MAP_TYPE_HYBRID);
+				break;
+			case "Satellite":
+				map.setMapType(MAP_TYPE_SATELLITE);
+				break;
+			case "Terrain":
+				map.setMapType(MAP_TYPE_TERRAIN);
+				break;
+			case "None":
+				map.setMapType(MAP_TYPE_NONE);
+				break;
+			default:
+				map.setMapType(MAP_TYPE_NORMAL);
+				break;
+        }
+    }
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+		// TODO Auto-generated method stub
+	}
 }
