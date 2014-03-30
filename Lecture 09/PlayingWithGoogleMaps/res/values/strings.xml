@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">PlayingWithGoogleMaps</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="kitty_dance">Kitty Dance</string>
+    <string name="kitty_attack">Kitty Attack</string>
 
 </resources>
